@@ -6,16 +6,18 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Orbit\Concerns\Orbital;
 use Illuminate\Database\Schema\Blueprint;
+use Staudenmeir\EloquentJsonRelations\HasJsonRelationships;
 
 class Group extends Model
 {
     use HasFactory;
     use Orbital;
+    use HasJsonRelationships;
 
     protected $guarded = [];
 
     protected $casts = [
-        'people' => 'array',
+        'members' => 'json',
     ];
 
     public static function schema(Blueprint $table)
@@ -23,7 +25,12 @@ class Group extends Model
         $table->string('name');
         $table->string('slug');
         $table->string('description');
-        $table->json('people');
+        $table->json('members');
+    }
+
+    public function people()
+    {
+        return $this->belongsToJson(Person::class, 'members');
     }
 
     public function getKeyName()

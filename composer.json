@@ -12,7 +12,8 @@
         "laravel/prompts": "^0.1.4",
         "laravel/sanctum": "^3.2",
         "laravel/tinker": "^2.8",
-        "ryangjchandler/orbit": "^1.2"
+        "ryangjchandler/orbit": "^1.2",
+        "staudenmeir/eloquent-json-relations": "^1.1"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
