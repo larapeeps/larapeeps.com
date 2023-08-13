@@ -9,4 +9,7 @@ members:
     - nuno-maduro
     - mior-muhammad-zaki
     - jess-archer
+    - guus-leeuw
+    - tim-macdonald
+    - joe-dixon
 ---
