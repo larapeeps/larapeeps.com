@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Group;
 use App\Models\Person;
 use Illuminate\Foundation\Inspiring;
 use Illuminate\Support\Facades\Artisan;
@@ -7,6 +8,7 @@ use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Str;
 use Arispati\EmojiRemover\EmojiRemover;
 
+use function Laravel\Prompts\multiselect;
 use function Laravel\Prompts\text;
 
 /*
@@ -30,7 +32,7 @@ Artisan::command('app:add-person {handle}', function ($handle) {
         ->get("/users/show.json?screen_name={$handle}")
         ->json();
 
-    Person::create([
+    $person = Person::create([
         'name' => $name = text(
             label: 'Full name',
             default: trim(EmojiRemover::filter($data['name'])),
@@ -44,4 +46,12 @@ Artisan::command('app:add-person {handle}', function ($handle) {
         'x_handle' => $handle,
         'github_handle' => null,
     ]);
+
+    if ($groups = multiselect('Groups', Group::pluck('name', 'slug'))) {
+        Group::findMany($groups)->each(function (Group $group) use ($person) {
+            if (array_search($person->slug, $group->members) === false) {
+                $group->update(['members' => array_merge($group->members, [$person->slug])]);
+            }
+        });
+    }
 });

@@ -15,6 +15,7 @@ class Group extends Model
     use HasJsonRelationships;
 
     protected $guarded = [];
+    protected $keyType = 'string';
 
     protected $casts = [
         'members' => 'json',
