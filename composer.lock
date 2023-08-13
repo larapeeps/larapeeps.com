@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c157c76bc6af008b125450f57a1af716",
+    "content-hash": "6bba4e2748b39e794d3a87255f32cc2b",
     "packages": [
         {
             "name": "arispati/emoji-remover",

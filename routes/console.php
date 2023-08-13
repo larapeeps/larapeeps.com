@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Str;
 use Arispati\EmojiRemover\EmojiRemover;
 
+use function Laravel\Prompts\text;
+
 /*
 |--------------------------------------------------------------------------
 | Console Routes
@@ -29,9 +31,15 @@ Artisan::command('app:add-person {handle}', function ($handle) {
         ->json();
 
     Person::create([
-        'name' => trim(EmojiRemover::filter($data['name'])),
-        'slug' => Str::slug($data['name']),
-        'bio' => $data['description'],
+        'name' => $name = text(
+            label: 'Full name',
+            default: trim(EmojiRemover::filter($data['name'])),
+        ),
+        'bio' => text(
+            label: 'Bio',
+            default: $data['description'],
+        ),
+        'slug' => Str::slug($name),
         'avatar_url' => $data['profile_image_url_https'],
         'x_handle' => $handle,
         'github_handle' => null,
