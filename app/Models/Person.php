@@ -21,7 +21,7 @@ class Person extends Model
         $table->string('bio');
         $table->string('avatar_url');
         $table->string('x_handle');
-        $table->string('github_handle');
+        $table->string('github_handle')->nullable();
     }
 
     public function getKeyName()
