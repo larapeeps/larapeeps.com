@@ -14,8 +14,8 @@
         <script src="https://cdn.tailwindcss.com"></script>
     </head>
     <body class="antialiased">
-        @foreach($people as $slug)
-            <div>{{ $slug }}</div>
+        @foreach($group->people as $person)
+            <div>{{ $person }}</div>
         @endforeach
     </body>
 </html>

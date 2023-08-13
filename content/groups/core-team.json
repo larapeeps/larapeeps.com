@@ -1,0 +1,10 @@
+{
+    "name": "Core team",
+    "slug": "core-team",
+    "description": "Members of the official Laravel team",
+    "people": [
+        "taylor-otwell"
+    ],
+    "created_at": "2023-08-13T11:52:16.000000Z",
+    "updated_at": "2023-08-13T11:52:16.000000Z"
+}

@@ -14,8 +14,8 @@
         <script src="https://cdn.tailwindcss.com"></script>
     </head>
     <body class="antialiased">
-        @foreach($lists as $slug => $list)
-            <a href="{{ route('list', $slug) }}">{{ $list->name }}</a>
+        @foreach($groups as $group)
+            <a href="{{ route('group', $group) }}">{{ $group->name }}</a>
         @endforeach
     </body>
 </html>

@@ -1,9 +1,0 @@
-{
-    "name": "Core Team",
-    "description": "Members of the official Laravel team",
-    "people": [
-        "taylor-otwell",
-        "dries-vints",
-        "james-brooks"
-    ]
-}
