@@ -33,4 +33,9 @@ class Person extends Model
     {
         return false;
     }
+
+    public function usesTimestamps()
+    {
+        return false;
+    }
 }
