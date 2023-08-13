@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Group;
+use App\Models\Person;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Route;
@@ -18,8 +19,14 @@ use Symfony\Component\Finder\SplFileInfo;
 */
 
 Route::get('/', function () {
+    $groups = Group::all();
+    $featuredPeeps = Person::findMany($groups->flatMap(fn ($group) => array_slice($group->members, 0, 4))->unique());
+    $relation = $groups->first()->people();
+    
+    $relation->match($groups->all(), $featuredPeeps, 'people');
+
     return view('homepage', [
-        'groups' => Group::all(),
+        'groups' => $groups,
     ]);
 });
 

@@ -13,6 +13,7 @@ class Person extends Model
     use Orbital;
 
     protected $guarded = [];
+    protected $keyType = 'string';
 
     public static function schema(Blueprint $table)
     {

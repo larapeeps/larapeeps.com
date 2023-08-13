@@ -40,7 +40,7 @@ Artisan::command('app:add-person {handle}', function ($handle) {
             default: $data['description'],
         ),
         'slug' => Str::slug($name),
-        'avatar_url' => $data['profile_image_url_https'],
+        'avatar_url' => Str::replace('_normal', '_200x200', $data['profile_image_url_https']),
         'x_handle' => $handle,
         'github_handle' => null,
     ]);
