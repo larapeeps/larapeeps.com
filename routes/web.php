@@ -40,7 +40,9 @@ Route::get('/', function () {
 });
 
 Route::get('/{group}', function (Group $group) {
-    return view('group', [
-        'group' => $group,
-    ]);  
+    $group->load('people');
+
+    $group->setRelation('people', $group->people->shuffle());
+
+    return view('group', ['group' => $group]);
 })->name('group');
