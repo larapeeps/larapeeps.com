@@ -12,4 +12,5 @@ members:
     - guus-leeuw
     - tim-macdonald
     - joe-dixon
+    - graham-campbell
 ---
