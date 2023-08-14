@@ -26,6 +26,14 @@ Artisan::command('inspire', function () {
     $this->comment(Inspiring::quote());
 })->purpose('Display an inspiring quote');
 
+Artisan::command('app:add-group', function () {
+    Group::create([
+        'name' => $name = text(label: 'Name', required: true),
+        'slug' => Str::slug($name),
+        'members' => [],
+    ]);
+});
+
 Artisan::command('app:add-person {handle}', function ($handle) {
     $data = Http::withToken(config('services.twitter.token'))
         ->baseUrl('https://api.twitter.com/1.1')

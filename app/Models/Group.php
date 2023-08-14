@@ -25,7 +25,7 @@ class Group extends Model
     {
         $table->string('name');
         $table->string('slug');
-        $table->string('description');
+        $table->string('description')->nullable();
         $table->json('members');
     }
 
