@@ -6,4 +6,5 @@ members:
     - graham-campbell
     - mateus-guimaraes
     - kai-sassnowski
+    - ash-allen
 ---

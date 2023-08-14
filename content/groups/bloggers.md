@@ -5,4 +5,5 @@ members:
     - ryan-chandler
     - mateus-guimaraes
     - kai-sassnowski
+    - ash-allen
 ---

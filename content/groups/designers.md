@@ -1,5 +1,6 @@
 ---
 name: Designers
 slug: designers
-members: []
+members:
+    - ash-allen
 ---
