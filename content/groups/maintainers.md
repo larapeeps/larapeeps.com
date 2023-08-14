@@ -5,4 +5,5 @@ members:
     - ryan-chandler
     - graham-campbell
     - mateus-guimaraes
+    - kai-sassnowski
 ---
