@@ -44,11 +44,12 @@ Artisan::command('app:add-person {handle}', function ($handle) {
         'name' => $name = text(
             label: 'Full name',
             default: trim(EmojiRemover::filter($data['name'])),
+            required: true,
         ),
         'bio' => text(
             label: 'Bio',
-            default: $data['description'],
-        ),
+            placeholder: $data['description'],
+        ) ?: $data['description'],
         'slug' => Str::slug($name),
         'avatar_url' => Str::replace('_normal', '_200x200', $data['profile_image_url_https']),
         'x_handle' => $handle,
