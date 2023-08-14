@@ -20,8 +20,8 @@ class Person extends Model
         $table->string('name');
         $table->string('slug');
         $table->string('bio');
-        $table->string('avatar_url');
         $table->string('x_handle');
+        $table->string('x_avatar_url');
         $table->string('github_handle')->nullable();
     }
 

@@ -20,7 +20,7 @@
                             @foreach ($group->people as $i => $person)
                                 @php $zIndex = ['z-30', 'z-20', 'z-10', 'z-0'][$i]; @endphp
 
-                                <img class="relative {{ $zIndex }} inline-block h-12 w-12 rounded-full ring-2 ring-white" src="{{ $person->avatar_url }}" alt="{{ $person->name }}">
+                                <img class="relative {{ $zIndex }} inline-block h-12 w-12 rounded-full ring-2 ring-white" src="{{ $person->x_avatar_url }}" alt="{{ $person->name }}">
                             @endforeach
                         </div>
 

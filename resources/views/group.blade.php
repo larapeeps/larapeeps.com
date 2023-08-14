@@ -10,7 +10,7 @@
             <div class="divide-y">
                 @foreach($group->people as $person)
                     <a class="p-8 flex items-center hover:bg-gray-50" href="https://x.com/{{ $person->x_handle }}">
-                        <img class="relative inline-block h-16 w-16 rounded-full ring-2 ring-white" src="{{ $person->avatar_url }}" alt="{{ $person->name }}">
+                        <img class="relative inline-block h-16 w-16 rounded-full ring-2 ring-white" src="{{ $person->x_avatar_url }}" alt="{{ $person->name }}">
                         <div class="ml-6">
                             <h3 class="text-xl leading-none font-bold">{{ $person->name }}</h3>
                             <p class="mt-2">{{ Str::limit($person->bio, 80) }}</p>
