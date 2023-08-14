@@ -9,6 +9,8 @@ use Illuminate\Support\Str;
 use Arispati\EmojiRemover\EmojiRemover;
 
 use function Laravel\Prompts\multiselect;
+use function Laravel\Prompts\select;
+use function Laravel\Prompts\suggest;
 use function Laravel\Prompts\text;
 
 /*
@@ -40,23 +42,27 @@ Artisan::command('app:add-person {handle}', function ($handle) {
         ->get("/users/show.json?screen_name={$handle}")
         ->json();
 
+    $name = trim(EmojiRemover::filter($data['name']));
+    $name = text('Full name', $name) ?: $name;
+
+    $bio = text('Bio', $data['description']) ?: $data['description'];
+
+    $avatar = Str::replace('_normal', '_200x200', $data['profile_image_url_https']);
+
     $person = Person::create([
-        'name' => $name = text(
-            label: 'Full name',
-            default: trim(EmojiRemover::filter($data['name'])),
-            required: true,
-        ),
-        'bio' => text(
-            label: 'Bio',
-            placeholder: $data['description'],
-        ) ?: $data['description'],
+        'name' => $name,
         'slug' => Str::slug($name),
+        'bio' => $bio,
         'x_handle' => $handle,
-        'x_avatar_url' => Str::replace('_normal', '_200x200', $data['profile_image_url_https']),
-        'github_handle' => null,
+        'x_avatar_url' => $avatar,
+        'github_handle' => text('GitHub handle'),
+        'website_url' => text('Personal website URL'),
     ]);
 
     if ($groups = multiselect('Groups', Group::pluck('name', 'slug'))) {
-        Group::findMany($groups)->each->addMember($person);
+        Group::findMany($groups)->each(function ($group) use ($person) {
+            $group->addMember($person);
+            $group->save();
+        });
     }
 });

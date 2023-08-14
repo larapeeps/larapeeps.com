@@ -23,6 +23,7 @@ class Person extends Model
         $table->string('x_handle');
         $table->string('x_avatar_url');
         $table->string('github_handle')->nullable();
+        $table->string('website_url')->nullable();
     }
 
     public function getKeyName()
