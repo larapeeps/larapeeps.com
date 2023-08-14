@@ -34,6 +34,13 @@ class Group extends Model
         return $this->belongsToJson(Person::class, 'members');
     }
 
+    public function addMember(Person $person): void
+    {
+        if (array_search($person->slug, $this->members) === false) {
+            $this->members = array_merge($this->members, [$person->slug]);
+        }
+    }
+
     public function getKeyName()
     {
         return 'slug';

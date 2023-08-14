@@ -57,10 +57,6 @@ Artisan::command('app:add-person {handle}', function ($handle) {
     ]);
 
     if ($groups = multiselect('Groups', Group::pluck('name', 'slug'))) {
-        Group::findMany($groups)->each(function (Group $group) use ($person) {
-            if (array_search($person->slug, $group->members) === false) {
-                $group->update(['members' => array_merge($group->members, [$person->slug])]);
-            }
-        });
+        Group::findMany($groups)->each->addMember($person);
     }
 });
