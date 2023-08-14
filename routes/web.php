@@ -20,11 +20,14 @@ use Symfony\Component\Finder\SplFileInfo;
 
 Route::get('/', function () {
     $groups = Group::all();
-    $featuredPeeps = Person::findMany($groups->flatMap(fn ($group) => array_slice($group->members, 0, 4))->unique());
-    $relation = $groups->first()->people();
-    
-    $relation->match($groups->all(), $featuredPeeps, 'people');
 
+    $people = Person::findMany($groups->flatMap(function (Group $group) {
+        return array_slice($group->members, 0, 4);
+    })->unique());
+    
+    $relation = (new Group)->people();
+    $relation->match($groups->all(), $people, 'people');
+    
     return view('homepage', [
         'groups' => $groups,
     ]);
