@@ -2,6 +2,7 @@
 
 use App\Models\Group;
 use App\Models\Person;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Route;
@@ -21,16 +22,21 @@ use Symfony\Component\Finder\SplFileInfo;
 Route::get('/', function () {
     $groups = Group::all();
 
-    $people = Person::findMany($groups->flatMap(function (Group $group) {
-        return array_slice($group->members, 0, 4);
-    })->unique());
+    $featuredPeepsInGroups = $groups
+        ->keyBy('slug')
+        ->map(fn ($group) => collect($group->members)->shuffle()->take(4))
+        ->pipe(function ($groups) {
+            $slugs = $groups->flatten()->unique();
+            $models = Person::query()->findMany($slugs);
+
+            return $groups->map(fn ($peeps) => $models->find($peeps)->shuffle()->values());
+        });
+
+    $groups->each(function (Group $group) use ($featuredPeepsInGroups) {
+        $group->setRelation('people', $featuredPeepsInGroups->get($group->slug));
+    });
     
-    $relation = (new Group)->people();
-    $relation->match($groups->all(), $people, 'people');
-    
-    return view('homepage', [
-        'groups' => $groups,
-    ]);
+    return view('homepage', ['groups' => $groups]);
 });
 
 Route::get('/{group}', function (Group $group) {
