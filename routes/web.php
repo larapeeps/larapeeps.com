@@ -39,6 +39,10 @@ Route::get('/', function () {
     return view('homepage', ['groups' => $groups]);
 });
 
+Route::get('/everyone', function () {
+    return view('everyone', ['people' => Person::orderBy('name')->get()]); 
+});
+
 Route::get('/{group}', function (Group $group) {
     $group->load('people');
 
