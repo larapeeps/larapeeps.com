@@ -1,6 +1,7 @@
 ---
 name: 'X Posters'
 slug: x-posters
+description: "Peeps from the Laravel community, that are classed as 'Must Follow'."
 members:
     - gaurav-makhecha
     - mateus-guimaraes
@@ -8,4 +9,5 @@ members:
     - ollie-read
     - ash-allen
     - juststeveking
+    - andrew-schmelyun
 ---
