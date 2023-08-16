@@ -7,4 +7,5 @@ members:
     - kai-sassnowski
     - ollie-read
     - ash-allen
+    - juststeveking
 ---

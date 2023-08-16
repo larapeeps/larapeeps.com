@@ -6,4 +6,5 @@ members:
     - mateus-guimaraes
     - kai-sassnowski
     - ash-allen
+    - juststeveking
 ---

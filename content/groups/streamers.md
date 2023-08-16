@@ -1,5 +1,6 @@
 ---
 name: Streamers
 slug: streamers
-members: {  }
+members:
+    - juststeveking
 ---
