@@ -26,7 +26,7 @@ Artisan::command('inspire', function () {
     $this->comment(Inspiring::quote());
 })->purpose('Display an inspiring quote');
 
-Artisan::command('app:add-group', function () {
+Artisan::command('add:group', function () {
     Group::create([
         'name' => $name = text(label: 'Name', required: true),
         'slug' => Str::slug($name),
@@ -34,23 +34,28 @@ Artisan::command('app:add-group', function () {
     ]);
 });
 
-Artisan::command('app:add-person {handle}', function ($handle) {
-    $data = Http::withToken(config('services.twitter.token'))
-        ->baseUrl('https://api.twitter.com/1.1')
-        ->get("/users/show.json?screen_name={$handle}")
-        ->json();
+Artisan::command('add:person', function () {
+    if (config('services.twitter.token') === null) {
+        $this->warn('Twitter API token not set. You can still add a person manually.');
+    } else {
+        $handle = text('Twitter handle', required: true);
 
-    $name = trim(EmojiRemover::filter($data['name']));
-    $name = text('Full name', default: $name);
+        $data = Http::withToken(config('services.twitter.token'))
+            ->baseUrl('https://api.twitter.com/1.1')
+            ->get("/users/show.json?screen_name={$handle}")
+            ->json();
 
-    $avatar = Str::replace('_normal', '_200x200', $data['profile_image_url_https']);
+        $name = trim(EmojiRemover::filter($data['name']));
+        $avatar = Str::replace('_normal', '_200x200', $data['profile_image_url_https']);
+        $bio = str(EmojiRemover::filter($data['description']))->limit(80);
+    }
 
     $person = Person::create([
-        'name' => $name,
+        'name' => text('Full name', default: $name ?? '', required: true),
         'slug' => Str::slug($name),
-        'bio' => text('Bio'),
-        'x_handle' => $handle,
-        'x_avatar_url' => $avatar,
+        'bio' => text('Bio', default: $bio ?? ''),
+        'x_handle' => $handle ?? null,
+        'x_avatar_url' => $avatar ?? null,
         'github_handle' => text('GitHub handle'),
         'website_url' => text('Personal website URL'),
     ]);
