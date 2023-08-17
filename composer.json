@@ -19,7 +19,8 @@
     "livewire/livewire": "^3.0@beta",
     "livewire/volt": "^1.0@beta",
     "ryangjchandler/orbit": "^1.2.1",
-    "staudenmeir/eloquent-json-relations": "^1.8.2"
+    "staudenmeir/eloquent-json-relations": "^1.8.2",
+    "timacdonald/json-api": "v1.0.0-beta.4"
   },
   "require-dev": {
     "fakerphp/faker": "^1.23.0",
