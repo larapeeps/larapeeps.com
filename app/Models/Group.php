@@ -1,27 +1,35 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Orbit\Concerns\Orbital;
 use Illuminate\Database\Schema\Blueprint;
+use Orbit\Concerns\Orbital;
 use Staudenmeir\EloquentJsonRelations\HasJsonRelationships;
+use Staudenmeir\EloquentJsonRelations\Relations\BelongsToJson;
 
-class Group extends Model
+/**
+ * @property string $name
+ * @property string $slug
+ * @property string $description
+ * @property array $members
+ */
+final class Group extends Model
 {
     use HasFactory;
-    use Orbital;
     use HasJsonRelationships;
+    use Orbital;
 
-    protected $guarded = [];
     protected $keyType = 'string';
 
     protected $casts = [
         'members' => 'json',
     ];
 
-    public static function schema(Blueprint $table)
+    public static function schema(Blueprint $table): void
     {
         $table->string('name');
         $table->string('slug');
@@ -29,9 +37,12 @@ class Group extends Model
         $table->json('members');
     }
 
-    public function people()
+    public function people(): BelongsToJson
     {
-        return $this->belongsToJson(Person::class, 'members');
+        return $this->belongsToJson(
+            related: Person::class,
+            foreignKey: 'members',
+        );
     }
 
     public function addMember(Person $person): self
@@ -47,17 +58,17 @@ class Group extends Model
         return $this;
     }
 
-    public function getKeyName()
+    public function getKeyName(): string
     {
         return 'slug';
     }
-    
-    public function getIncrementing()
+
+    public function getIncrementing(): false
     {
         return false;
     }
 
-    public function usesTimestamps()
+    public function usesTimestamps(): false
     {
         return false;
     }

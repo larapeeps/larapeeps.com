@@ -1,32 +1,23 @@
 <?php
 
+declare(strict_types=1);
+
 use App\Models\Group;
 use App\Models\Person;
+use Arispati\EmojiRemover\EmojiRemover;
 use Illuminate\Foundation\Inspiring;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Str;
-use Arispati\EmojiRemover\EmojiRemover;
 
 use function Laravel\Prompts\multiselect;
 use function Laravel\Prompts\text;
 
-/*
-|--------------------------------------------------------------------------
-| Console Routes
-|--------------------------------------------------------------------------
-|
-| This file is where you may define all of your Closure based console
-| commands. Each Closure is bound to a command instance allowing a
-| simple approach to interacting with each command's IO methods.
-|
-*/
-
-Artisan::command('inspire', function () {
+Artisan::command('inspire', function (): void {
     $this->comment(Inspiring::quote());
 })->purpose('Display an inspiring quote');
 
-Artisan::command('add:group', function () {
+Artisan::command('add:group', function (): void {
     Group::create([
         'name' => $name = text(label: 'Name', required: true),
         'slug' => Str::slug($name),
@@ -34,8 +25,8 @@ Artisan::command('add:group', function () {
     ]);
 });
 
-Artisan::command('add:person', function () {
-    if (config('services.twitter.token') === null) {
+Artisan::command('add:person', function (): void {
+    if (null === config('services.twitter.token')) {
         $this->warn('Twitter API token not set. You can still add a person manually.');
     } else {
         $handle = text('Twitter handle', required: true);

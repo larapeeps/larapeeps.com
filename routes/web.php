@@ -1,19 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 use App\Models\Group;
 use App\Models\Person;
 use Illuminate\Support\Facades\Route;
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
 
 Route::get('/', function () {
     $groups = Group::query()->inRandomOrder()->limit(3)->get()->keyBy('slug');
@@ -28,17 +19,15 @@ Route::get('/', function () {
 
             return $groups->map(fn ($peeps) => $models->find($peeps)->shuffle()->values());
         })
-        ->each(function ($people, $slug) use ($groups) {
+        ->each(function ($people, $slug) use ($groups): void {
             // Set the people relation on the group
             $groups->get($slug)->setRelation('people', $people);
         });
-    
+
     return view('homepage', ['groups' => $groups]);
 });
 
-Route::get('/everyone', function () {
-    return view('everyone', ['people' => Person::orderBy('name')->get()]); 
-});
+Route::get('/everyone', fn () => view('everyone', ['people' => Person::orderBy('name')->get()]));
 
 Route::get('/{group}', function (Group $group) {
     return view('group', [
