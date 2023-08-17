@@ -11,10 +11,13 @@
     "php": "^8.2",
     "arispati/emoji-remover": "^0.1.4",
     "guzzlehttp/guzzle": "^7.7",
+    "laravel/folio": "^1.0@beta",
     "laravel/framework": "^10.19",
     "laravel/prompts": "^0.1.5",
     "laravel/sanctum": "^3.2.5",
     "laravel/tinker": "^2.8.1",
+    "livewire/livewire": "^3.0@beta",
+    "livewire/volt": "^1.0@beta",
     "ryangjchandler/orbit": "^1.2.1",
     "staudenmeir/eloquent-json-relations": "^1.8.2"
   },
