@@ -1,10 +1,12 @@
-@php
-
-    use App\Models\Group;
-    use App\Models\Person;
+<?php
     use function Laravel\Folio\{name};
 
     name('home');
+?>
+
+@php
+    use App\Models\Group;
+    use App\Models\Person;
 
     $groups = Group::query()->inRandomOrder()->limit(3)->get()->keyBy('slug');
 
