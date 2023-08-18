@@ -1,31 +1,4 @@
-<?php
-
-use App\Models\Group;
-use App\Models\Person;
-
-use function Livewire\Volt\{state};
-
-    $groups = Group::query()->inRandomOrder()->limit(3)->get()->keyBy('slug');
-
-    // We want to display 4 random avatars for each group
-    $groups
-        ->map(fn ($group) => collect($group->members)->shuffle()->take(4))
-        ->pipe(function ($groups) {
-            // Replace slugs with models
-            $slugs = $groups->flatten()->unique();
-            $models = Person::query()->findMany($slugs);
-
-            return $groups->map(fn ($peeps) => $models->find($peeps)->shuffle()->values());
-        })
-        ->each(function ($people, $slug) use ($groups): void {
-            // Set the people relation on the group
-            $groups->get($slug)->setRelation('people', $people);
-        });
-state([
-    'groups' => $groups,
-]);
-
-?>
+@props(['groups'])
 
 <div class="mt-24 divide-y">
     @foreach($groups as $group)

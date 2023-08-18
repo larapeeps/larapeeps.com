@@ -1,18 +1,8 @@
-<?php
-
-use App\Models\Person;
-
-use function Livewire\Volt\{state};
-
-state([
-    'peeps' => Person::query()->orderBy('name')->get(),
-]);
-
-?>
+@props(['people'])
 
 <div class="mt-20 max-w-4xl mx-auto px-8">
     <div class="divide-y">
-        @foreach($peeps as $person)
+        @foreach($people as $person)
             <div class="p-8 flex items-center hover:bg-gray-50">
                 <img class="self-start relative inline-block h-16 w-16 rounded-full ring-2 ring-white"
                      src="{{ $person->x_avatar_url }}" alt="{{ $person->name }}">

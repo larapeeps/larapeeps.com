@@ -15,10 +15,7 @@
     </head>
     <body class="antialiased font-[Figtree] text-gray-900 dark:text-gray-50 bg-white dark:bg-gray-900">
         <main class="py-24">
-
             {{ $slot }}
-
-            <footer></footer>
         </main>
     </body>
 </html>
