@@ -8,24 +8,13 @@
     use App\Models\Group;
     use App\Models\Person;
 
-    $groups = Group::query()->inRandomOrder()->limit(3)->get()->keyBy('slug');
+    $groups = Group::query()->inRandomOrder()->limit(3)->get();
 
-    // Take 4 random people from each group
-    $groups
-        ->map(fn ($group) => collect($group->members)->shuffle()->take(4))
-        ->pipe(function ($groups) {
-            // Eager load all featured people
-            $slugs = $groups->flatten()->unique();
-            $models = Person::query()->findMany($slugs);
+    $groups->each(function (Group $group) {
+        $featuredPeople = collect($group->members)->shuffle()->take(4);
 
-            // Replace slugs with Person models inside each group
-            return $groups->map(fn ($peeps) => $models->find($peeps)->shuffle()->values());
-        })
-        ->each(function ($people, $slug) use ($groups): void {
-            // Set the the people relation on each group
-            $groups->get($slug)->setRelation('people', $people);
-        });
-
+        $group->setRelation('people', Person::find($featuredPeople));
+    });
 @endphp
 
 <x-layout>
