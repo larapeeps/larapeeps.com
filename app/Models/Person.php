@@ -12,7 +12,6 @@ use Orbit\Concerns\Orbital;
 /**
  * @property string $name
  * @property string $slug
- * @property string $bio
  * @property string $x_handle
  * @property string $x_avatar_url
  * @property string $github_handle
@@ -29,7 +28,6 @@ final class Person extends Model
     {
         $table->string('name');
         $table->string('slug');
-        $table->string('bio');
         $table->string('x_handle')->nullable();
         $table->string('x_avatar_url')->nullable();
         $table->string('github_handle')->nullable();
