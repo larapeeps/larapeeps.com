@@ -10,4 +10,5 @@ members:
     - ash-allen
     - juststeveking
     - andrew-schmelyun
+    - aaron-francis
 ---

@@ -7,4 +7,5 @@ members:
     - ollie-read
     - juststeveking
     - andrew-schmelyun
+    - aaron-francis
 ---

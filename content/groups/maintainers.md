@@ -9,4 +9,5 @@ members:
     - kai-sassnowski
     - ash-allen
     - andrew-schmelyun
+    - aaron-francis
 ---
