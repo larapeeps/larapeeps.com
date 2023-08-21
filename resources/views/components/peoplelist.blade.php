@@ -7,7 +7,7 @@
                 <div class="flex items-end justify-between">
                     <div>
                         {{-- <p class="mb-1 text-sm text-gray-400 md:text-base">Founder & Creator</p> --}}
-                        <h3 class="text-xl leading-none font-bold md:text-3xl">{{ $person->name }}&nbsp;&nbsp;🇺🇸</h3>
+                        <h3 class="text-xl leading-none font-bold md:text-3xl">{{ $person->name }}&nbsp;&nbsp;{{-- 🇺🇸 --}}</h3>
                     </div>
                     <div class="-mb-1.5 flex-shrink-0 flex items-center">
                         <img class="w-8 h-8 md:w-12 md:h-12 rounded-full" src="{{ $person->x_avatar_url }}" alt="{{ $person->name }}">
@@ -16,7 +16,7 @@
                         </svg> --}}
                     </div>
                 </div>
-                <div class="mt-4 pb-4 whitespace-nowrap overflow-x-scroll space-x-1 -mx-6 pl-6 pr-6">
+                <div class="mt-3 pb-4 whitespace-nowrap overflow-x-scroll space-x-1 -mx-6 pl-6 pr-6">
                     <a href="https://x.com/{{ $person->x_handle }}" class="h-8 bg-gray-100 rounded-full inline-flex align-top items-center px-4 hover:bg-gray-200 md:h-9">
                         <img class="mr-2 h-3 md:h-4" src="{{ asset('img/x_logo.svg') }}">
                         <span class="font-medium text-sm md:text-base">{{ $person->x_handle }}</span>
