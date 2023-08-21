@@ -29,7 +29,7 @@
                     @endif
                     @if($person->website_url)
                     <a href="{{ $person->website_url }}" class="h-8 bg-gray-100 rounded-full inline-flex  align-top items-center px-4 hover:bg-gray-200 md:h-9">
-                        <span class="font-medium text-sm md:text-base">{{ $person->website_url }}</span>
+                        <span class="font-medium text-sm md:text-base">{{ Str::match('/\/\/(?:www\.)?(.*?)\/?$/', $person->website_url) }}</span>
                     </a>
                     @endif
                 </div>
