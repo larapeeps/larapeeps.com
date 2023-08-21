@@ -49,7 +49,16 @@ final class Group extends Model
     public function addMember(Person $person): self
     {
         if ($this->members->doesntContain($person->slug)) {
-            $this->members->push($person->slug);
+            $this->members = $this->members->add($person->slug);
+        }
+
+        return $this;
+    }
+
+    public function removeMember(Person $person): self
+    {
+        if ($this->members->contains($person->slug)) {
+            $this->members = $this->members->reject($person->slug);
         }
 
         return $this;

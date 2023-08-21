@@ -11,13 +11,14 @@ use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Str;
 
 use function Laravel\Prompts\multiselect;
+use function Laravel\Prompts\search;
 use function Laravel\Prompts\text;
 
 Artisan::command('inspire', function (): void {
     $this->comment(Inspiring::quote());
 })->purpose('Display an inspiring quote');
 
-Artisan::command('add:group', function (): void {
+Artisan::command('group:add', function (): void {
     Group::create([
         'name' => $name = text(label: 'Name', required: true),
         'slug' => Str::slug($name),
@@ -25,7 +26,7 @@ Artisan::command('add:group', function (): void {
     ]);
 });
 
-Artisan::command('add:person', function (): void {
+Artisan::command('person:add', function (): void {
     if (null === config('services.twitter.token')) {
         $this->warn('Twitter API token not set. You can still add a person manually.');
     } else {
@@ -54,4 +55,29 @@ Artisan::command('add:person', function (): void {
     if ($groups = multiselect('Groups', Group::pluck('name', 'slug'))) {
         Group::findMany($groups)->each->addMember($person)->each->save();
     }
+});
+
+Artisan::command('person:groups', function () {
+    $person = Person::find(search(
+        label: 'Search for a person',
+        options: fn (string $query) => Person::where('name', 'like', "%{$query}%")->orderBy('name')->pluck('name', 'slug')->all(),
+    ));
+
+    $groups = Group::all();
+
+    $assigned = $groups->filter(fn ($group) => $group->members->contains($person->slug))->pluck('slug');
+
+    $assigned = collect(multiselect(
+        label: 'Groups',
+        options: $groups->pluck('name', 'slug'),
+        default: $assigned,
+    ));
+
+    $groups->each(function (Group $group) use ($assigned, $person) {
+        $assigned->contains($group->slug)
+            ? $group->addMember($person)
+            : $group->removeMember($person);
+
+        $group->save();
+    });
 });
