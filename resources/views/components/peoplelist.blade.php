@@ -7,7 +7,7 @@
                 <div class="flex items-end justify-between">
                     <div>
                         {{-- <p class="mb-1 text-sm text-gray-400 md:text-base">Founder & Creator</p> --}}
-                        <h3 class="text-xl leading-none font-bold md:text-3xl">{{ $person->name }}&nbsp;&nbsp;{{-- 🇺🇸 --}}</h3>
+                        <h3 class="text-xl leading-none font-bold md:text-3xl">{{ $person->name }}&nbsp;&nbsp;{{ $person->country?->flag }}</h3>
                     </div>
                     <div class="-mb-1.5 flex-shrink-0 flex items-center">
                         <img class="w-8 h-8 md:w-12 md:h-12 rounded-full" src="{{ $person->x_avatar_url }}" alt="{{ $person->name }}">
