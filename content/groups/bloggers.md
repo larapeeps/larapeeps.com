@@ -10,4 +10,8 @@ members:
     - juststeveking
     - andrew-schmelyun
     - aaron-francis
+    - jess-archer
+    - dries-vints
+    - james-brooks
+    - joe-dixon
 ---

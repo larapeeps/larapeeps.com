@@ -6,4 +6,8 @@ members:
     - gaurav-makhecha
     - kai-sassnowski
     - aaron-francis
+    - jess-archer
+    - dries-vints
+    - james-brooks
+    - joe-dixon
 ---

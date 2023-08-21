@@ -5,4 +5,5 @@ description: 'Peeps in the Laravel community that have founded a product or comp
 members:
     - gaurav-makhecha
     - aaron-francis
+    - joe-dixon
 ---

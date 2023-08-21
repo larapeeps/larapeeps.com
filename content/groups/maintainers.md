@@ -10,4 +10,9 @@ members:
     - ash-allen
     - andrew-schmelyun
     - aaron-francis
+    - jess-archer
+    - dries-vints
+    - guus-leeuw
+    - james-brooks
+    - joe-dixon
 ---
