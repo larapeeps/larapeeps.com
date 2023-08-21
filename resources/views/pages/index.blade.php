@@ -11,12 +11,10 @@
     $groups = Group::query()->get();
 
     $groups->each(function (Group $group) {
-        $featuredPeople = collect($group->members)->shuffle()->take(5);
-
-        $group->setRelation('people', Person::find($featuredPeople)->shuffle());
+        $group->setRelation('people', Person::find($group->members->shuffle()->take(5))->shuffle());
     });
 
-    $groups = $groups->sortByDesc(fn ($group) => count($group->members));
+    $groups = $groups->sortByDesc(fn ($group) => $group->members->count());
 @endphp
 
 <x-layout>

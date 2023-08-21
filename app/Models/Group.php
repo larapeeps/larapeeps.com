@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Casts\AsCollection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Schema\Blueprint;
@@ -15,7 +16,7 @@ use Staudenmeir\EloquentJsonRelations\Relations\BelongsToJson;
  * @property string $name
  * @property string $slug
  * @property string $description
- * @property array $members
+ * @property \Illuminate\Support\Collection $members
  */
 final class Group extends Model
 {
@@ -26,7 +27,7 @@ final class Group extends Model
     protected $keyType = 'string';
 
     protected $casts = [
-        'members' => 'json',
+        'members' => AsCollection::class,
     ];
 
     public static function schema(Blueprint $table): void
@@ -47,13 +48,9 @@ final class Group extends Model
 
     public function addMember(Person $person): self
     {
-        $members = collect($this->members);
-
-        if ($members->doesntContain($person->slug)) {
-            $members->push($person->slug);
+        if ($this->members->doesntContain($person->slug)) {
+            $this->members->push($person->slug);
         }
-
-        $this->members = $members->all();
 
         return $this;
     }
