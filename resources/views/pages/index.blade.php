@@ -11,7 +11,7 @@
     $groups = Group::query()->get();
 
     $groups->each(function (Group $group) {
-        $featuredPeople = collect($group->members)->shuffle()->take(6);
+        $featuredPeople = collect($group->members)->shuffle()->take(5);
 
         $group->setRelation('people', Person::find($featuredPeople)->shuffle());
     });

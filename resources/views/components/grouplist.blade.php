@@ -10,7 +10,7 @@
                         <p class="text-sm text-gray-400 md:text-base md:-mb-1 md:order-last">{{ count($group->members) }} peeps</p>
                         <h3 class="text-xl font-bold md:text-3xl">{{ $group->name }}</h3>
                     </div>
-                    <p class="hidden mt-1 pr-8 text-gray-700 md:block md:text-lg">{{ $group->description }}</p>
+                    <p class="hidden mt-1 text-gray-700 md:block md:text-lg">{{ $group->description }}</p>
                 </div>
 
                 <div class="mb-1 mr-1 ml-auto flex-shrink-0 isolate flex -space-x-2.5 md:mr-4">
@@ -19,7 +19,7 @@
 
                         <img @class([
                             'relative inline-block h-7 w-7 rounded-full ring-2 ring-white',
-                            'md:w-10 md:h-10',
+                            'md:w-12 md:h-12',
                             ['z-50', 'z-40', 'z-30', 'z-20', 'z-10', 'z-0'][$i]
                         ]) src="{{ $person->x_avatar_url }}" alt="{{ $person->name }}">
                     @endforeach

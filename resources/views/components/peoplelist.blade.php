@@ -3,7 +3,7 @@
 <div {{ $attributes }}>
     @foreach($people as $person)
         <div class="px-6 group md:px-12">
-            <div class="pt-6 pb-2 border-b group-last:border-b-0">
+            <div class="pt-6 pb-2 border-b group-last:border-b-0 md:pt-8 md:pb-4">
                 <div class="flex items-end justify-between">
                     <div>
                         {{-- <p class="mb-1 text-sm text-gray-400 md:text-base">Founder & Creator</p> --}}
