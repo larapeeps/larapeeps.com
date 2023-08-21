@@ -5,9 +5,13 @@
 ?>
 
 @php
-    $seed = cache()->remember('seed:' . $group->slug, now()->addHour(), fn () => random_int(0, 9999));
+    use App\Models\Person;
 
-    $group = $group->setRelation('people', $group->people->shuffle($seed));
+    $seed = cache()->remember('seed:' . $group->slug, now()->addHour(), fn () => random_int(0, 9999));
+    $people = Person::find($group->members);
+    $members = $group->members->shuffle($seed);
+
+    $group = $group->setRelation('people', $members->map(fn ($slug) => $people->find($slug)));
 @endphp
 
 <x-layout>

@@ -11,7 +11,11 @@
     $groups = Group::query()->get();
 
     $groups->each(function (Group $group) {
-        $group->setRelation('people', Person::find($group->members->shuffle()->take(5))->shuffle());
+        $seed = cache()->remember('seed:' . $group->slug, now()->addHour(), fn () => random_int(0, 9999));
+        $featured = $group->members->shuffle($seed)->take(5);
+        $people = Person::find($featured);
+
+        $group->setRelation('people', $featured->map(fn ($slug) => $people->find($slug)));
     });
 
     $groups = $groups->sortByDesc(fn ($group) => $group->members->count());
