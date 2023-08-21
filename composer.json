@@ -10,6 +10,7 @@
   "require": {
     "php": "^8.2",
     "arispati/emoji-remover": "^0.1.4",
+    "doctrine/dbal": "^3.6",
     "guzzlehttp/guzzle": "^7.7",
     "laravel/folio": "^1.0@beta",
     "laravel/framework": "^10.19",
