@@ -38,17 +38,17 @@ Artisan::command('add:person', function (): void {
 
         $name = trim(EmojiRemover::filter($data['name']));
         $avatar = Str::replace('_normal', '_200x200', $data['profile_image_url_https']);
-        $bio = str(EmojiRemover::filter($data['description']))->limit(80);
+        $url = Http::withOptions(['allow_redirects' => false])->get($data['url'])->header('location');
+        $github = Str::match('/github.com\/(.*?)"/', Http::get($url)->body());
     }
 
     $person = Person::create([
         'name' => text('Full name', default: $name ?? '', required: true),
         'slug' => Str::slug($name),
-        'bio' => text('Bio', default: $bio ?? ''),
         'x_handle' => $handle ?? null,
         'x_avatar_url' => $avatar ?? null,
-        'github_handle' => text('GitHub handle'),
-        'website_url' => text('Personal website URL'),
+        'github_handle' => text('GitHub handle', default: $github ?? ''),
+        'website_url' => text('Website URL', default: $url ?? ''),
     ]);
 
     if ($groups = multiselect('Groups', Group::pluck('name', 'slug'))) {
