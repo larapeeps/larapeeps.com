@@ -5,7 +5,9 @@
 ?>
 
 @php
-    $group = $group->setRelation('people', $group->people->shuffle());
+    $seed = cache()->remember('seed:' . $group->slug, now()->addHour(), fn () => random_int(0, 9999));
+
+    $group = $group->setRelation('people', $group->people->shuffle($seed));
 @endphp
 
 <x-layout>
