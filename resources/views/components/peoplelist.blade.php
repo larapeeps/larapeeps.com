@@ -22,13 +22,13 @@
                         <span class="font-medium text-sm md:text-base">{{ $person->x_handle }}</span>
                     </a>
                     @if($person->github_handle)
-                    <a href="https://github.com/{{ $person->github_handle }}" class="h-8 bg-gray-100 rounded-full inline-flex  align-top items-center px-4 md:h-9">
+                    <a href="https://github.com/{{ $person->github_handle }}" class="h-8 bg-gray-100 rounded-full inline-flex  align-top items-center px-4 hover:bg-gray-200 md:h-9">
                         <img class="mr-2 h-3 md:h-4" src="{{ asset('img/github_logo.svg') }}">
                         <span class="font-medium text-sm md:text-base">{{ $person->github_handle }}</span>
                     </a>
                     @endif
                     @if($person->website_url)
-                    <a href="{{ $person->website_url }}" class="h-8 bg-gray-100 rounded-full inline-flex  align-top items-center px-4 md:h-9">
+                    <a href="{{ $person->website_url }}" class="h-8 bg-gray-100 rounded-full inline-flex  align-top items-center px-4 hover:bg-gray-200 md:h-9">
                         <span class="font-medium text-sm md:text-base">{{ $person->website_url }}</span>
                     </a>
                     @endif
