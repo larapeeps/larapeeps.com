@@ -65,9 +65,9 @@ Artisan::command('person:update', function () {
 
     $person->name = text('Full name', default: $person->name, required: true);
     $person->slug = text('Slug', default: $person->slug, required: true);
-    $person->x_handle = text('X handle', default: $person->x_handle);
-    $person->github_handle = text('GitHub handle', default: $person->github_handle);
-    $person->website_url = text('Website URL', default: $person->website_url);
+    $person->x_handle = text('X handle', default: $person->x_handle ?? '');
+    $person->github_handle = text('GitHub handle', default: $person->github_handle ?? '');
+    $person->website_url = text('Website URL', default: $person->website_url ?? '');
 
     $person->save();
 
