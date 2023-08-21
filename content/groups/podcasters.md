@@ -6,4 +6,5 @@ members:
     - aaron-francis
     - jess-archer
     - james-brooks
+    - taylor-otwell
 ---

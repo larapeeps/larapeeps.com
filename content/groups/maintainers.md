@@ -15,4 +15,9 @@ members:
     - guus-leeuw
     - james-brooks
     - joe-dixon
+    - mior-muhammad-zaki
+    - nuno-maduro
+    - taylor-otwell
+    - tim-macdonald
+    - wendell-adriel
 ---

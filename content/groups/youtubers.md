@@ -8,4 +8,5 @@ members:
     - juststeveking
     - andrew-schmelyun
     - aaron-francis
+    - nuno-maduro
 ---

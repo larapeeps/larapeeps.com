@@ -10,4 +10,7 @@ members:
     - dries-vints
     - james-brooks
     - joe-dixon
+    - nuno-maduro
+    - taylor-otwell
+    - tim-macdonald
 ---
