@@ -26,4 +26,14 @@ members:
     - joel-clermont
     - stephen-rees-carter
     - diana-scharf
+    - jake-bennett
+    - shruti-balasa
+    - caneco
+    - francisco-madeira
+    - kevin-mckee
+    - alex-six
+    - bert-de-swaef
+    - zuzana-kunckova
+    - mohammad-emran
+    - adam-wathan
 ---

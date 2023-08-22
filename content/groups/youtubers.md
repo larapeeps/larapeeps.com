@@ -19,4 +19,15 @@ members:
     - jason-mccreary
     - alex-garrett-smith
     - brent-roose
+    - code-with-dary
+    - povilas-korop
+    - shruti-balasa
+    - chris-fidao
+    - jordan-dalton
+    - sarthak-shrivastava
+    - amit-merchant
+    - bert-de-swaef
+    - pascal-baljet
+    - philo-hermans
+    - adam-wathan
 ---

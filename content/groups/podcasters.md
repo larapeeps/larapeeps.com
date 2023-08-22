@@ -16,4 +16,9 @@ members:
     - jason-mccreary
     - aaron-saray
     - joel-clermont
+    - jake-bennett
+    - jack-ellis
+    - ian-landsman
+    - kevin-mckee
+    - adam-wathan
 ---

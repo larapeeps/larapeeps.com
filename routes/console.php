@@ -61,8 +61,16 @@ Artisan::command('person:add', function (): void {
         'website_url' => text('Website URL', default: $url ?? ''),
         'country_code' => search(
             label: 'Country',
-            placeholder: $location ?? '',
-            options: fn ($value) => Country::where('name', 'like', "%{$value}%")->pluck('name', 'id')->all(),
+            hint: $location ?? '',
+            options: function ($value) {
+                $options = Country::where('name', 'like', "%{$value}%")->pluck('name', 'id');
+
+                if (! $value) {
+                    $options->prepend('-', null);
+                }
+
+                return $options->all();
+            },
         ),
     ]);
 
@@ -82,6 +90,19 @@ Artisan::command('person:update', function () {
     $person->x_handle = text('X handle', default: $person->x_handle ?? '');
     $person->github_handle = text('GitHub handle', default: $person->github_handle ?? '');
     $person->website_url = text('Website URL', default: $person->website_url ?? '');
+    $person->country_code = search(
+        label: 'Country',
+        hint: $location ?? '',
+        options: function ($value) {
+            $options = Country::where('name', 'like', "%{$value}%")->pluck('name', 'id');
+
+            if (! $value) {
+                $options->prepend('-', null);
+            }
+
+            return $options->all();
+        },
+    );
 
     $groups = Group::all();
 

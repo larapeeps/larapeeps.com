@@ -39,4 +39,28 @@ members:
     - stephen-rees-carter
     - brent-roose
     - diana-scharf
+    - owen-voke
+    - benjamin-crozat
+    - code-with-dary
+    - peter-fox
+    - helge-sverre
+    - povilas-korop
+    - shruti-balasa
+    - jack-ellis
+    - jordan-dalton
+    - sarthak-shrivastava
+    - paul-redmond
+    - francisco-madeira
+    - kevin-mckee
+    - alex-six
+    - amit-merchant
+    - bert-de-swaef
+    - pascal-baljet
+    - tom-herrmann
+    - davor-minchorov
+    - philo-hermans
+    - zuzana-kunckova
+    - mohammad-emran
+    - martin-bean
+    - adam-wathan
 ---

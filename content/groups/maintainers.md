@@ -43,4 +43,20 @@ members:
     - stephen-rees-carter
     - brent-roose
     - diana-scharf
+    - jake-bennett
+    - owen-voke
+    - peter-fox
+    - sam-carre
+    - helge-sverre
+    - zep-fietje
+    - chris-fidao
+    - caneco
+    - francisco-madeira
+    - amit-merchant
+    - pascal-baljet
+    - tom-herrmann
+    - philo-hermans
+    - mohammad-emran
+    - claudio-dekker
+    - adam-wathan
 ---
