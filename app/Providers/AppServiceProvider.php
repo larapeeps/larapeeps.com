@@ -13,6 +13,8 @@ final class AppServiceProvider extends ServiceProvider
     {
         Model::unguard();
 
-        seo()->title(modify: fn (string $title) => $title . ' | Larapeeps');
+        seo()
+            ->title(modify: fn (string $title) => $title . ' | Larapeeps')
+            ->twitterImage(asset('img/twitter-card.png'));
     }
 }
