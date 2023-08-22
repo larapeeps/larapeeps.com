@@ -4,7 +4,7 @@
     name('group');
 ?>
 
-@seo(['title' => $group->name, 'description' => $group->description])
+@seo(['title' => $group->name . ' - Larapeeps', 'description' => $group->description])
 
 @php
     use App\Models\Person;
