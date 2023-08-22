@@ -13,7 +13,7 @@
         <!-- Styles -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="antialiased font-[Figtree] text-gray-900 dark:text-gray-50 bg-white dark:bg-gray-900">
+    <body class="antialiased font-[Figtree] text-gray-900 bg-white">
         <div class="py-8 md:py-16">
             {{ $slot }}
         </div>
