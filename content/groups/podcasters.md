@@ -14,4 +14,6 @@ members:
     - christoph-rumpel
     - matt-stauffer
     - jason-mccreary
+    - aaron-saray
+    - joel-clermont
 ---

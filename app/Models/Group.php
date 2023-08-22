@@ -46,19 +46,19 @@ final class Group extends Model
         );
     }
 
-    public function addMember(Person $person): self
+    public function addMember(string $slug): self
     {
-        if ($this->members->doesntContain($person->slug)) {
-            $this->members = $this->members->add($person->slug);
+        if ($this->members->doesntContain($slug)) {
+            $this->members = $this->members->add($slug);
         }
 
         return $this;
     }
 
-    public function removeMember(Person $person): self
+    public function removeMember(string $slug): self
     {
-        if ($this->members->contains($person->slug)) {
-            $this->members = $this->members->reject($person->slug);
+        if ($this->members->contains($slug)) {
+            $this->members = $this->members->reject($slug)->values();
         }
 
         return $this;

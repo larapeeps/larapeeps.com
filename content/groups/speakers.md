@@ -23,4 +23,7 @@ members:
     - jonathan-reinink
     - sebastian-de-deyne
     - jason-mccreary
+    - joel-clermont
+    - stephen-rees-carter
+    - diana-scharf
 ---

@@ -31,4 +31,12 @@ members:
     - mohamed-said
     - jason-mccreary
     - eric-l-barnes
+    - aaron-saray
+    - joel-clermont
+    - alex-garrett-smith
+    - tobias-petrysql
+    - martin-joo
+    - stephen-rees-carter
+    - brent-roose
+    - diana-scharf
 ---

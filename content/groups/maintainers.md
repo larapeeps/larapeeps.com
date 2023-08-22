@@ -37,4 +37,10 @@ members:
     - sebastian-de-deyne
     - mohamed-said
     - jason-mccreary
+    - tobias-petrysql
+    - chris-morell
+    - barry-vd-heuvel
+    - stephen-rees-carter
+    - brent-roose
+    - diana-scharf
 ---

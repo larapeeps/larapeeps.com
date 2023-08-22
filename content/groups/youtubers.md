@@ -17,4 +17,6 @@ members:
     - loris
     - mohamed-said
     - jason-mccreary
+    - alex-garrett-smith
+    - brent-roose
 ---

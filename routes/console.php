@@ -48,12 +48,12 @@ Artisan::command('person:add', function (): void {
         $name = trim(EmojiRemover::filter($data['name']));
         $avatar = Str::replace('_normal', '_200x200', $data['profile_image_url_https']);
         $url = $data['url'] ? rescue(fn () => Http::withOptions(['allow_redirects' => false])->get($data['url'])->header('location')) : null;
-        $github = $url ? rescue(fn () => Str::match('/github.com\/(.*?)"/', Http::get($url)->body())) : null;
+        $github = $url ? rescue(fn () => Str::match('/github.com\/([a-z0-9\-]+)/', Http::get($url)->body())) : null;
         $location = $data['location'];
     }
 
     $person = Person::create([
-        'name' => text('Full name', default: $name ?? '', required: true),
+        'name' => $name = text('Full name', default: $name ?? '', required: true),
         'slug' => Str::slug($name),
         'x_handle' => $handle ?? null,
         'x_avatar_url' => $avatar ?? null,
@@ -67,7 +67,7 @@ Artisan::command('person:add', function (): void {
     ]);
 
     if ($groups = multiselect('Groups', Group::pluck('name', 'slug'))) {
-        Group::findMany($groups)->each->addMember($person)->each->save();
+        Group::findMany($groups)->each->addMember($person->slug)->each->save();
     }
 });
 
@@ -83,11 +83,9 @@ Artisan::command('person:update', function () {
     $person->github_handle = text('GitHub handle', default: $person->github_handle ?? '');
     $person->website_url = text('Website URL', default: $person->website_url ?? '');
 
-    $person->save();
-
     $groups = Group::all();
 
-    $assigned = $groups->filter(fn ($group) => $group->members->contains($person->slug))->pluck('slug');
+    $assigned = $groups->filter(fn ($group) => $group->members->contains($person->getOriginal('slug')))->pluck('slug');
 
     $assigned = collect(multiselect(
         label: 'Assign to groups',
@@ -96,10 +94,14 @@ Artisan::command('person:update', function () {
     ));
 
     $groups->each(function (Group $group) use ($assigned, $person) {
+        $group->removeMember($person->getOriginal('slug'));
+
         $assigned->contains($group->slug)
-            ? $group->addMember($person)
-            : $group->removeMember($person);
+            ? $group->addMember($person->slug)
+            : $group->removeMember($person->slug);
 
         $group->save();
     });
+
+    $person->save();
 });
