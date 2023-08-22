@@ -16,7 +16,7 @@
                         </svg> --}}
                     </div>
                 </div>
-                <div class="mt-3 pb-4 whitespace-nowrap overflow-x-scroll space-x-1 -mx-6 pl-6 pr-6">
+                <div class="mt-3 pb-4 whitespace-nowrap overflow-x-scroll space-x-1 -mx-6 pl-6 pr-6 scrollbar-hide">
                     <a href="https://x.com/{{ $person->x_handle }}" class="h-8 bg-gray-100 rounded-full inline-flex align-top items-center px-4 hover:bg-gray-200 md:h-9">
                         <img class="mr-2 h-3 md:h-4" src="{{ asset('img/x_logo.svg') }}">
                         <span class="font-medium text-sm md:text-base">{{ $person->x_handle }}</span>
