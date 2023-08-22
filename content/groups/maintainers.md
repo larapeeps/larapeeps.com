@@ -20,4 +20,17 @@ members:
     - taylor-otwell
     - tim-macdonald
     - wendell-adriel
+    - marcel-pociot
+    - caleb-porzio
+    - jack-mcdade
+    - hemp
+    - freek-van-der-herten
+    - dan-harrin
+    - michael-dyrynda
+    - coulbourne
+    - jeffrey-way
+    - christoph-rumpel
+    - luke-downing
+    - matt-stauffer
+    - jonathan-reinink
 ---

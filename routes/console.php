@@ -9,9 +9,11 @@ use Illuminate\Foundation\Inspiring;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Str;
+use Squire\Models\Country;
 
 use function Laravel\Prompts\multiselect;
 use function Laravel\Prompts\search;
+use function Laravel\Prompts\select;
 use function Laravel\Prompts\text;
 
 Artisan::command('inspire', function (): void {
@@ -27,11 +29,17 @@ Artisan::command('group:add', function (): void {
 });
 
 Artisan::command('person:add', function (): void {
+    $handle = text('Twitter handle', required: true);
+
+    if (Person::where('x_handle', $handle)->exists()) {
+        $this->components->error('Person already exists.');
+
+        return;
+    }
+
     if (null === config('services.twitter.token')) {
         $this->warn('Twitter API token not set. You can still add a person manually.');
     } else {
-        $handle = text('Twitter handle', required: true);
-
         $data = Http::withToken(config('services.twitter.token'))
             ->baseUrl('https://api.twitter.com/1.1')
             ->get("/users/show.json?screen_name={$handle}")
@@ -39,8 +47,9 @@ Artisan::command('person:add', function (): void {
 
         $name = trim(EmojiRemover::filter($data['name']));
         $avatar = Str::replace('_normal', '_200x200', $data['profile_image_url_https']);
-        $url = Http::withOptions(['allow_redirects' => false])->get($data['url'])->header('location');
-        $github = Str::match('/github.com\/(.*?)"/', Http::get($url)->body());
+        $url = $data['url'] ? Http::withOptions(['allow_redirects' => false])->get($data['url'])->header('location') : null;
+        $github = $url ?  Str::match('/github.com\/(.*?)"/', Http::get($url)->body()) : null;
+        $location = $data['location'];
     }
 
     $person = Person::create([
@@ -50,6 +59,11 @@ Artisan::command('person:add', function (): void {
         'x_avatar_url' => $avatar ?? null,
         'github_handle' => text('GitHub handle', default: $github ?? ''),
         'website_url' => text('Website URL', default: $url ?? ''),
+        'country_code' => search(
+            label: 'Country',
+            placeholder: $location ?? '',
+            options: fn ($value) => Country::where('name', 'like', "%{$value}%")->pluck('name', 'id')->all(),
+        ),
     ]);
 
     if ($groups = multiselect('Groups', Group::pluck('name', 'slug'))) {

@@ -9,4 +9,9 @@ members:
     - andrew-schmelyun
     - aaron-francis
     - nuno-maduro
+    - jack-mcdade
+    - freek-van-der-herten
+    - christoph-rumpel
+    - luke-downing
+    - matt-stauffer
 ---

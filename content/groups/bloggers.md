@@ -16,4 +16,13 @@ members:
     - joe-dixon
     - nuno-maduro
     - wendell-adriel
+    - marcel-pociot
+    - caleb-porzio
+    - jack-mcdade
+    - freek-van-der-herten
+    - jeffrey-way
+    - christoph-rumpel
+    - luke-downing
+    - matt-stauffer
+    - jonathan-reinink
 ---

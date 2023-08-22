@@ -7,4 +7,10 @@ members:
     - jess-archer
     - james-brooks
     - taylor-otwell
+    - caleb-porzio
+    - michael-dyrynda
+    - coulbourne
+    - jeffrey-way
+    - christoph-rumpel
+    - matt-stauffer
 ---

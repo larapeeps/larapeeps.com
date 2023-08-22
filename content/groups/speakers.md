@@ -13,4 +13,12 @@ members:
     - nuno-maduro
     - taylor-otwell
     - tim-macdonald
+    - marcel-pociot
+    - caleb-porzio
+    - freek-van-der-herten
+    - jeffrey-way
+    - christoph-rumpel
+    - luke-downing
+    - matt-stauffer
+    - jonathan-reinink
 ---
