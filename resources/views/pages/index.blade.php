@@ -4,6 +4,11 @@
     name('home');
 ?>
 
+@seo([
+    'title' => 'People who make Laravel awesome',
+    'description' => 'Discover bloggers, speakers, maintainers, core team members, YouTubers, podcasters, and various people who are contributing to the Laravel community.'
+])
+
 @php
     use App\Models\Group;
     use App\Models\Person;

@@ -4,6 +4,8 @@
     name('group');
 ?>
 
+@seo(['title' => $group->name, 'description' => $group->description])
+
 @php
     use App\Models\Person;
 
