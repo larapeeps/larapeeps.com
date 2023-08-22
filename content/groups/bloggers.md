@@ -25,4 +25,10 @@ members:
     - luke-downing
     - matt-stauffer
     - jonathan-reinink
+    - loris
+    - sebastian-de-deyne
+    - jason-beggs
+    - mohamed-said
+    - jason-mccreary
+    - eric-l-barnes
 ---

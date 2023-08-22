@@ -33,4 +33,8 @@ members:
     - luke-downing
     - matt-stauffer
     - jonathan-reinink
+    - loris
+    - sebastian-de-deyne
+    - mohamed-said
+    - jason-mccreary
 ---

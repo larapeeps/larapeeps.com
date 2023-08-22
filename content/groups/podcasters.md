@@ -13,4 +13,5 @@ members:
     - jeffrey-way
     - christoph-rumpel
     - matt-stauffer
+    - jason-mccreary
 ---

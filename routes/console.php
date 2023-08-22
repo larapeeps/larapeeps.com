@@ -47,8 +47,8 @@ Artisan::command('person:add', function (): void {
 
         $name = trim(EmojiRemover::filter($data['name']));
         $avatar = Str::replace('_normal', '_200x200', $data['profile_image_url_https']);
-        $url = $data['url'] ? Http::withOptions(['allow_redirects' => false])->get($data['url'])->header('location') : null;
-        $github = $url ?  Str::match('/github.com\/(.*?)"/', Http::get($url)->body()) : null;
+        $url = $data['url'] ? rescue(fn () => Http::withOptions(['allow_redirects' => false])->get($data['url'])->header('location')) : null;
+        $github = $url ? rescue(fn () => Str::match('/github.com\/(.*?)"/', Http::get($url)->body())) : null;
         $location = $data['location'];
     }
 

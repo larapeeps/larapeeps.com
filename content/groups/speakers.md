@@ -21,4 +21,6 @@ members:
     - luke-downing
     - matt-stauffer
     - jonathan-reinink
+    - sebastian-de-deyne
+    - jason-mccreary
 ---
