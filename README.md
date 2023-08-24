@@ -2,9 +2,9 @@
 
 An open-source directory of people who make Laravel awesome ❤️
 
-The goal of this project is to make it easier for people to find and follow those who are actively contributing to the community. 
+The goal of this project is to make it easier to find and follow those who are actively contributing to the community. 
 
-This is a community-driven project and the list can be expanded or modified by anyone who wants to add value to it.
+This is a community-driven project and the list can be modified by anyone who wants to add value to it.
 
 ## Adding and updating peeps
 
@@ -23,7 +23,7 @@ php artisan person:add
 This command will prompt you for all the required fields and allow you to add a person to multiple groups
 
 **Twitter / X integration (optional)**  
-To make adding people easier, you can enable autocomplete of properties like name, website and country from twitter  
+To make adding people easier, you can enable autocomplete of properties like name, website and country  
 To enable this, add your Twitter API key to your .env file like this:
 
 ```
