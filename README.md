@@ -1,13 +1,62 @@
-## About Larapeeps
+## Larapeeps
 
-Larapeeps is a place to find all the people you need to follow to stay up to date with the Laravel community. The goal of this project is to make it easy to find people to follow on Twitter, GitHub, and other platforms. You can also find links to their blogs, podcasts, and other projects.
+An open-source directory of people who make Laravel awesome ❤️
 
-## Adding a person
+The goal of this project is to make it easier for people to find and follow those who are actively contributing to the community. 
 
-To add a person, clone this repository and run the following command:
+This is a community-driven project and the list can be expanded or modified by anyone who wants to add value to it.
 
-```bash
+## Adding and updating peeps
+
+This project uses a flat-file database to store the data.
+
+There are two options for updating the list:
+
+- You can manually edit the files in the `/content` folder
+- You can clone the repository and run one of the console commands
+
+### Adding a person
+```
 php artisan person:add
 ```
 
-This will ask you a series of questions about yourself. After running the command, you'll find your profile in `content/people/your-name.md`. If needed you can edit this file to add more information about yourself. When you're done, commit your changes and submit a pull request.
+This command will prompt you for all the required fields and allow you to add a person to multiple groups
+
+**Twitter / X integration (optional)**  
+To make adding people easier, you can enable autocomplete of properties like name, website and country from twitter  
+To enable this, add your Twitter API key to your .env file like this:
+
+```
+TWITTER_API_TOKEN=AAAAAAAAAAAAAAAAAAAAA...
+```
+
+https://developer.twitter.com/en/docs/twitter-api/getting-started/about-twitter-api
+
+### Updating a person
+```
+php artisan person:update
+```
+
+This command will let you choose a person from the list and edit the properties as well as the groups.
+
+
+### Manually editing the files
+
+```
+content/people/*.md
+content/groups/*.md
+```
+
+All data is stored in these two folders. To add a new person, create a new .md file with the following format and then add their slug to appropriate groups. Make sure the slug property matches the name of the file.
+
+```
+---
+name: 'Taylor Otwell'
+slug: taylor-otwell
+x_handle: taylorotwell
+x_avatar_url: 'https://pbs.twimg.com/profile_images/1609760305763975170/Tx2TVkPI_200x200.jpg'
+github_handle: taylorotwell
+website_url: 'https://laravel.com'
+country_code: us
+---
+```
