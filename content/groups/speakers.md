@@ -36,4 +36,5 @@ members:
     - zuzana-kunckova
     - mohammad-emran
     - adam-wathan
+    - rissa-jackson
 ---
