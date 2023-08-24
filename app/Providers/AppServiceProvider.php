@@ -13,6 +13,6 @@ final class AppServiceProvider extends ServiceProvider
     {
         Model::unguard();
 
-        seo()->twitterImage(asset('img/twitter-card.png'));
+        seo()->twitterImage(asset('img/twitter-card.png?v=2.0'));
     }
 }
