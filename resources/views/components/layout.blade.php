@@ -16,6 +16,10 @@
     <body class="antialiased font-[Figtree] text-gray-900 bg-white">
         <div class="py-8 md:py-16">
             {{ $slot }}
+
+            <footer class="mt-8 px-6 text-center text-sm text-gray-400 md:mt-16">
+                The code for this project is available on <a class="underline" href="https://github.com/larapeeps/larapeeps.com">GitHub</a>.
+            </footer>
         </div>
     </body>
 </html>
