@@ -3,6 +3,7 @@ name: Youtubers
 slug: youtubers
 description: 'Peeps from the Laravel community with active YouTube channels.'
 members:
+    - alvaro-jorge
     - mateus-guimaraes
     - ollie-read
     - juststeveking
