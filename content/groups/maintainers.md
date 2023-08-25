@@ -38,7 +38,6 @@ members:
     - mohamed-said
     - jason-mccreary
     - tobias-petrysql
-    - chris-morell
     - barry-vd-heuvel
     - stephen-rees-carter
     - brent-roose
@@ -59,5 +58,6 @@ members:
     - mohammad-emran
     - claudio-dekker
     - adam-wathan
+    - chris-morrell
     - milwad-dev
 ---
