@@ -26,6 +26,7 @@ members:
     - matt-stauffer
     - jonathan-reinink
     - loris
+    - ahmed-ash
     - sebastian-de-deyne
     - jason-beggs
     - mohamed-said
