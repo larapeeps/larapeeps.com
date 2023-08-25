@@ -59,4 +59,5 @@ members:
     - claudio-dekker
     - adam-wathan
     - chris-morrell
+    - milwad-dev
 ---
