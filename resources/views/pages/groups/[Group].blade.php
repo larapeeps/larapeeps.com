@@ -9,10 +9,14 @@
 @php
     use App\Models\Person;
 
-    $seed = cache()->remember('seed:' . $group->slug, now()->addHour(), fn () => random_int(0, 9999));
+    // Eager load all the people in the group by their slugs
     $people = Person::find($group->members);
-    $members = $group->members->shuffle($seed);
 
+    // Shuffle the slugs using a seed that's cached for an hour
+    $seed = cache()->remember("seed:{$group->slug}", 3600, fn () => random_int(0, 9999));
+    $slugs = $group->members->shuffle($seed);
+
+    // Replace the slugs with the Person models
     $group = $group->setRelation('people', $members->map(fn ($slug) => $people->find($slug)));
 @endphp
 
