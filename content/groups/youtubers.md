@@ -32,4 +32,5 @@ members:
     - philo-hermans
     - adam-wathan
     - milwad-dev
+    -william-juma-misiko
 ---
