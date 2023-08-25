@@ -59,4 +59,5 @@ members:
     - mohammad-emran
     - claudio-dekker
     - adam-wathan
+    - chris-morrell
 ---
