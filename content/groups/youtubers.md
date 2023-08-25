@@ -31,5 +31,6 @@ members:
     - pascal-baljet
     - philo-hermans
     - adam-wathan
+    - rafael-lunardelli
     - milwad-dev
 ---
