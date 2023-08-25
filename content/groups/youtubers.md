@@ -32,4 +32,5 @@ members:
     - philo-hermans
     - adam-wathan
     - rafael-lunardelli
+    - milwad-dev
 ---

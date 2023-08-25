@@ -21,4 +21,5 @@ members:
     - ian-landsman
     - kevin-mckee
     - adam-wathan
+    - chris-morrell
 ---
