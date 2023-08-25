@@ -33,4 +33,5 @@ members:
     - adam-wathan
     - rafael-lunardelli
     - milwad-dev
+    - william-juma-misiko
 ---
