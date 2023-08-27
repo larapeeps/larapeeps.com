@@ -508,6 +508,12 @@
             color: #cbd5e0;
             color: rgba(203, 213, 224, var(--text-opacity))
         }
+
+        .dark\:text-gray-700 {
+            --text-opacity: 1;
+            color: #4a5568;
+            color:rgba(74, 85, 104, var(--text-opacity))
+        }
     }
     </style>
 
@@ -521,8 +527,8 @@
     <div class="relative flex items-center justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:pt-0">
         <div class="max-w-xl mx-auto sm:px-6 lg:px-8">
             <div class="pt-8 text-center sm:pt-0">
-                <div class="text-lg text-gray-500 uppercase tracking-wider">Deployment in progress</div>
-                <div class="mt-2 text-gray-700">Check back in a minute</div>
+                <div class="text-lg text-gray-600 dark:text-gray-400 uppercase tracking-wider">Deployment in progress</div>
+                <div class="mt-2 text-gray-500 dark:text-gray-700">Check back in a minute</div>
             </div>
         </div>
     </div>
