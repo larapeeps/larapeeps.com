@@ -60,4 +60,7 @@ members:
     - adam-wathan
     - chris-morrell
     - milwad-dev
+    - punyapal-shah
+    - adrian-nurnberger
+    - josh-hanley
 ---
