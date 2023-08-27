@@ -36,4 +36,5 @@ members:
     - william-juma-misiko
     - ludovic-guenet
     - fred-blanc
+    - shane-rosenthal
 ---
