@@ -56,7 +56,7 @@ Artisan::command('person:add', function (): void {
         'name' => $name = text('Full name', default: $name ?? '', required: true),
         'slug' => Str::slug($name),
         'x_handle' => $handle ?? null,
-        'x_avatar_url' => $avatar ?? null,
+        'x_avatar_url' => $avatar ?? text('Avatar URL', hint: 'Provide public URL to an avatar image (200x200px)', required: true),
         'github_handle' => text('GitHub handle', default: $github ?? ''),
         'website_url' => text('Website URL', default: $url ?? ''),
         'country_code' => search(
