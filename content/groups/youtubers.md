@@ -34,4 +34,5 @@ members:
     - rafael-lunardelli
     - milwad-dev
     - william-juma-misiko
+    - laravel-jutsu
 ---
