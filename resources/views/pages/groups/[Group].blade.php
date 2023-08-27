@@ -17,7 +17,7 @@
     $slugs = $group->members->shuffle($seed);
 
     // Replace the slugs with the Person models
-    $group = $group->setRelation('people', $members->map(fn ($slug) => $people->find($slug)));
+    $group = $group->setRelation('people', $slugs->map(fn ($slug) => $people->find($slug)));
 @endphp
 
 <x-layout>
