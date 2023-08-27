@@ -35,7 +35,14 @@
                     @endif
                     @if($person->website_url)
                     <a href="{{ $person->website_url }}" class="h-8 bg-gray-100 rounded-full inline-flex  align-top items-center px-4 hover:bg-gray-200 md:h-9">
+                        <img class="mr-2 h-3 md:h-4" src="{{ asset('img/link_logo.svg') }}">
                         <span class="font-medium text-sm md:text-base">{{ Str::match('/\/\/(?:www\.)?(.*?)\/?$/', $person->website_url) }}</span>
+                    </a>
+                    @endif
+                    @if($person->linkedin_handle)
+                    <a href="https://www.linkedin.com/in/{{$person->linkedin_handle}}" class="h-8 bg-gray-100 rounded-full inline-flex  align-top items-center px-4 hover:bg-gray-200 md:h-9">
+                        <img class="mr-2 h-3 md:h-4" src="{{ asset('img/linkedin_logo.svg') }}">
+                        <span class="font-medium text-sm md:text-base">{{ $person->linkedin_handle }}</span>
                     </a>
                     @endif
                 </div>

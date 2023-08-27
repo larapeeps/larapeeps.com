@@ -18,6 +18,7 @@ use Squire\Models\Country;
  * @property string $x_avatar_url
  * @property string $github_handle
  * @property string $website_url
+ * @property string $linkedin_handle
  */
 final class Person extends Model
 {
@@ -36,6 +37,7 @@ final class Person extends Model
         $table->string('youtube_handle')->nullable();
         $table->string('website_url')->nullable();
         $table->string('country_code')->nullable();
+        $table->string('linkedin_handle')->nullable();
     }
 
     public function country(): BelongsTo
