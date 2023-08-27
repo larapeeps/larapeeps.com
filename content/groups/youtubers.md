@@ -35,4 +35,5 @@ members:
     - milwad-dev
     - william-juma-misiko
     - ludovic-guenet
+    - fred-blanc
 ---

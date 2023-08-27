@@ -65,4 +65,5 @@ members:
     - martin-bean
     - adam-wathan
     - ludovic-guenet
+    - fred-blanc
 ---
