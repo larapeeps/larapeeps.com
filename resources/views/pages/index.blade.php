@@ -33,6 +33,7 @@
             <h1 class="-ml-0.5 text-[9vw] leading-tight font-extrabold md:-ml-1 md:text-6xl md:leading-[1.3]">
                 Discover <span class="text-red-500">amazing</span> people in&nbsp;the Laravel community
             </h1>
+            <p class="mt-4">There are currently <strong>{{ Person::count() }} peeps</strong> in total</p>
         </div>
     </header>
     
