@@ -66,4 +66,5 @@ members:
     - adam-wathan
     - ludovic-guenet
     - fred-blanc
+    - stefan-bauer
 ---

@@ -37,4 +37,5 @@ members:
     - mohammad-emran
     - adam-wathan
     - rissa-jackson
+    - stefan-bauer
 ---

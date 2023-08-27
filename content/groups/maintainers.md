@@ -63,4 +63,5 @@ members:
     - punyapal-shah
     - adrian-nurnberger
     - josh-hanley
+    - stefan-bauer
 ---
