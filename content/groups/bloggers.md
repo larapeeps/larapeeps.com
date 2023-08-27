@@ -67,4 +67,5 @@ members:
     - ludovic-guenet
     - fred-blanc
     - stefan-bauer
+    - joseph-silber
 ---

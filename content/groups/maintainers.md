@@ -64,4 +64,5 @@ members:
     - adrian-nurnberger
     - josh-hanley
     - stefan-bauer
+    - joseph-silber
 ---
