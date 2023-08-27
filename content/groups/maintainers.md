@@ -33,11 +33,11 @@ members:
     - luke-downing
     - matt-stauffer
     - jonathan-reinink
-    - loris
+    - loris-leiva
     - sebastian-de-deyne
     - mohamed-said
     - jason-mccreary
-    - tobias-petrysql
+    - tobias-petry
     - barry-vd-heuvel
     - stephen-rees-carter
     - brent-roose

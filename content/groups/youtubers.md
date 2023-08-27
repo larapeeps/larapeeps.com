@@ -15,7 +15,7 @@ members:
     - christoph-rumpel
     - luke-downing
     - matt-stauffer
-    - loris
+    - loris-leiva
     - mohamed-said
     - jason-mccreary
     - alex-garrett-smith

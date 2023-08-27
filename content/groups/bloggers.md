@@ -25,7 +25,7 @@ members:
     - luke-downing
     - matt-stauffer
     - jonathan-reinink
-    - loris
+    - loris-leiva
     - ahmed-ash
     - sebastian-de-deyne
     - jason-beggs
@@ -35,7 +35,7 @@ members:
     - aaron-saray
     - joel-clermont
     - alex-garrett-smith
-    - tobias-petrysql
+    - tobias-petry
     - martin-joo
     - stephen-rees-carter
     - brent-roose
