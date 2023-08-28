@@ -8,6 +8,10 @@ This is a community-driven project and the list can be modified by anyone who wa
 
 ## Adding and updating peeps
 
+The only criteria for adding new people is that they must fit into at least one of the predefined groups.
+
+If you think a new group should be added, please open an issue to discuss it.
+
 This project uses a flat-file database to store the data.
 
 There are two options for updating the list:

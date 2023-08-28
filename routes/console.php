@@ -56,9 +56,10 @@ Artisan::command('person:add', function (): void {
         'name' => $name = text('Full name', default: $name ?? '', required: true),
         'slug' => Str::slug($name),
         'x_handle' => $handle ?? null,
-        'x_avatar_url' => $avatar ?? null,
-        'github_handle' => text('GitHub handle', default: $github ?? ''),
-        'website_url' => text('Website URL', default: $url ?? ''),
+        'x_avatar_url' => $avatar ?? text('Avatar URL', hint: 'Provide public URL to an avatar image (200x200px)', required: true),
+        'github_handle' => text('GitHub handle', default: $github ?? '') ?: null,
+        'youtube_handle' => text('YouTube handle', hint: 'Provide the channel handle after the "@" symbol') ?: null,
+        'website_url' => text('Website URL', default: $url ?? '') ?: null,
         'country_code' => search(
             label: 'Country',
             hint: $location ?? '',
@@ -71,7 +72,7 @@ Artisan::command('person:add', function (): void {
 
                 return $options->all();
             },
-        ),
+        ) ?: null,
     ]);
 
     if ($groups = multiselect('Groups', Group::pluck('name', 'slug'))) {

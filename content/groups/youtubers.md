@@ -15,7 +15,7 @@ members:
     - christoph-rumpel
     - luke-downing
     - matt-stauffer
-    - loris
+    - loris-leiva
     - mohamed-said
     - jason-mccreary
     - alex-garrett-smith
@@ -34,4 +34,7 @@ members:
     - rafael-lunardelli
     - milwad-dev
     - william-juma-misiko
+    - ludovic-guenet
+    - fred-blanc
+    - shane-rosenthal
 ---

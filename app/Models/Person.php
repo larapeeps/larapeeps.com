@@ -33,6 +33,7 @@ final class Person extends Model
         $table->string('x_handle')->nullable();
         $table->string('x_avatar_url')->nullable();
         $table->string('github_handle')->nullable();
+        $table->string('youtube_handle')->nullable();
         $table->string('website_url')->nullable();
         $table->string('country_code')->nullable();
     }
