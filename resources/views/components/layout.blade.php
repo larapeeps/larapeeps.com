@@ -12,6 +12,9 @@
 
         <!-- Styles -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+        <!-- Alpine.js -->
+        <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     </head>
     <body class="antialiased font-[Figtree] text-gray-900 bg-white">
         <div class="py-8 md:py-16">
@@ -21,5 +24,7 @@
                 The code for this project is available on <a class="underline" href="https://github.com/larapeeps/larapeeps.com">GitHub</a>.
             </footer>
         </div>
+
+        <livewire:search />
     </body>
 </html>

@@ -37,6 +37,7 @@ module.exports = {
                 }
               }
             }, ['responsive'])
-          })
+        }),
+        require('@tailwindcss/forms'),
     ],
 }
