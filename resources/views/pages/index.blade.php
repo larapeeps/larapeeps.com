@@ -29,7 +29,7 @@
 <x-layout>
     <header>
         <div class="max-w-4xl mx-auto px-6 md:px-12">
-            <img class="block h-4 mb-6 md:h-6" src="{{ asset('img/logotype.svg') }}" alt="Larapeeps logotype">
+            <img class="block h-4 mb-6 md:h-6" src="{{ asset('img/logotype.svg') }}" alt="Larapeeps">
             <h1 class="-ml-0.5 text-[9vw] leading-tight font-extrabold md:-ml-1 md:text-6xl md:leading-[1.3]">
                 Discover <span class="text-red-500">amazing</span> people in&nbsp;the Laravel community
             </h1>
