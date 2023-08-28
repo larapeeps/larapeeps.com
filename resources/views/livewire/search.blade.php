@@ -10,7 +10,7 @@ new class extends Component {
     public function with()
     {
         return [
-            'people' => $this->query 
+            'results' => $this->query 
                 ? Person::where('name', 'like', '%' . $this->query . '%')->get()
                 : collect([]),
         ];
@@ -44,7 +44,7 @@ new class extends Component {
                     >
                 </div>
 
-                <x-peoplelist :$people />
+                <x-peoplelist :people="$results" />
             </div>
         </div>
     </template>
