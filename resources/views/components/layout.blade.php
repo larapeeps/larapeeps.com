@@ -14,6 +14,7 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
 
         <!-- Alpine.js -->
+        <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/focus@3.x.x/dist/cdn.min.js"></script>
         <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     </head>
     <body class="antialiased font-[Figtree] text-gray-900 bg-white">
