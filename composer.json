@@ -18,7 +18,7 @@
     "laravel/prompts": "^0.1.5",
     "laravel/sanctum": "^3.2.5",
     "laravel/tinker": "^2.8.1",
-    "livewire/livewire": "^3.0@beta",
+    "livewire/livewire": "^3.0",
     "livewire/volt": "^1.0",
     "ryangjchandler/orbit": "^1.2.1",
     "squirephp/countries-en": "^3.4",
