@@ -16,7 +16,6 @@
         <!-- Alpine.js -->
         <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/focus@3.x.x/dist/cdn.min.js"></script>
         <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-        <style>[x-cloak] { display: none !important; }</style>
     </head>
     <body class="antialiased font-[Figtree] text-gray-900 bg-white">
         <div class="py-8 md:py-16">
