@@ -20,12 +20,7 @@ new class extends Component {
 <div
     x-data="{ open: false }"
     x-cloak
-    x-init="$watch('open', value => {
-        if (! value) {
-            document.documentElement.style = ''
-        }
-    })"
-    x-bind:class="{ 'hidden': ! open }"
+    x-show="open"
     x-trap.noscroll="open"
     x-on:open-search.window="open = true"
     x-on:keydown.slash.window.prevent="open = true"
