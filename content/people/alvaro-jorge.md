@@ -7,4 +7,5 @@ github_handle: devajmeireles
 youtube_handle: euseiphp
 website_url: 'https://aj.dev.br'
 country_code: 'br'
+linkedin_handle: 'devajmeireles'
 ---
