@@ -68,4 +68,5 @@ members:
     - fred-blanc
     - stefan-bauer
     - joseph-silber
+    - jhon-achata
 ---
