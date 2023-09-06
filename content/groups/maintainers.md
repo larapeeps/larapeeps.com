@@ -65,4 +65,5 @@ members:
     - josh-hanley
     - stefan-bauer
     - joseph-silber
+    - alpha-olomi
 ---
